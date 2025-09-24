@@ -62,7 +62,7 @@ class HomeView extends StatelessWidget {
                 "Trending",
                 "Popular",
                 "New",
-                "Best Selling",
+                "Best Sellig",
               ],
               onChanged: (index) {},
             ),
