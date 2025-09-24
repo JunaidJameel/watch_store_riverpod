@@ -5,6 +5,7 @@ import 'package:watch_store/const/app_colors.dart';
 import 'package:watch_store/const/app_utils.dart';
 import 'package:watch_store/const/extensions/extension_sizebox.dart';
 import 'package:watch_store/provider/watch_provider.dart';
+import 'package:watch_store/view/home/detail.dart';
 
 class WatchCardWidget extends ConsumerWidget {
   const WatchCardWidget({super.key});
@@ -40,41 +41,49 @@ class _WatchItemCard extends ConsumerWidget {
       watchProvider.select((list) => list[index]),
     );
 
-    return Container(
-      height: 100,
-      width: 220.w,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: AppColors.kGrey.withValues(alpha: .5),
+    return GestureDetector(
+      onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (_) => DetailView(
+                    watch: watch,
+                  ))),
+      child: Container(
+        height: 100,
+        width: 220.w,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: AppColors.kGrey.withValues(alpha: .5),
+              ),
+              margin: const EdgeInsets.only(top: 150),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(watch.watchName),
+                  5.vSpace,
+                  Text('USD \$${watch.price}'),
+                  20.vSpace,
+                ],
+              ),
             ),
-            margin: const EdgeInsets.only(top: 150),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(watch.watchName),
-                5.vSpace,
-                Text('USD \$${watch.price}'),
-                20.vSpace,
-              ],
-            ),
-          ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Image.asset(
-              watch.watchImage,
-              height: 300.h,
-            ),
-          )
-        ],
+            Align(
+              alignment: Alignment.topCenter,
+              child: Image.asset(
+                watch.watchImage,
+                height: 300.h,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
