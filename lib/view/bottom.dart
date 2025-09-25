@@ -6,6 +6,7 @@ import 'package:iconsax/iconsax.dart';
 
 import 'package:watch_store/const/app_colors.dart';
 import 'package:watch_store/const/extensions/extension_sizebox.dart';
+import 'package:watch_store/view/cart/cart.dart';
 import 'package:watch_store/view/home/home.dart';
 
 class MainScreen extends StatefulWidget {
@@ -18,7 +19,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int selectedIndex = 0;
 
-  final List<Widget> _pages = const [HomeView(), Text(''), Text('')];
+  final List<Widget> _pages = const [HomeView(), Text('')];
 
   void changeTab(int index) {
     setState(() => selectedIndex = index);
@@ -53,10 +54,10 @@ class _MainScreenState extends State<MainScreen> {
                 5.hSpace,
                 CustomNavButton(
                   icon: Iconsax.shop,
-                  index: 1,
+                  index: -1,
                   selectedIndex: selectedIndex,
                   onTap: changeTab,
-                  isAddButton: true,
+                  isCartButton: true,
                 ),
                 5.hSpace,
                 CustomNavButton(
@@ -81,13 +82,13 @@ class CustomNavButton extends StatelessWidget {
     required this.index,
     required this.selectedIndex,
     required this.onTap,
-    this.isAddButton = false,
+    this.isCartButton = false,
   });
 
   final IconData icon;
   final int index;
   final int selectedIndex;
-  final bool isAddButton;
+  final bool isCartButton;
   final Function(int) onTap;
 
   @override
@@ -96,7 +97,10 @@ class CustomNavButton extends StatelessWidget {
 
     return IconButton(
       onPressed: () {
-        onTap(index);
+        isCartButton
+            ? Navigator.push(
+                context, MaterialPageRoute(builder: (context) => CartView()))
+            : onTap(index);
       },
       icon: Column(
         mainAxisSize: MainAxisSize.min,

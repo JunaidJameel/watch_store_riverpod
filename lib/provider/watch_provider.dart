@@ -15,8 +15,8 @@ class WatchNotifier extends StateNotifier<List<WatchModel>> {
   static final List<WatchModel> _initialWatches = [
     WatchModel(
       id: 1,
-      price: 5200.0,
-      watchName: 'Omega Seamaster Diver 300M',
+      price: 199.0,
+      watchName: 'Omega Seamaster Diver',
       watchImage: Assets.images.a1.path,
       category: [
         'Trending',
@@ -24,28 +24,28 @@ class WatchNotifier extends StateNotifier<List<WatchModel>> {
     ),
     WatchModel(
       id: 2,
-      price: 6100.0,
-      watchName: 'Omega Speedmaster Moonwatch',
+      price: 99.0,
+      watchName: 'Omega Speedmaster',
       watchImage: Assets.images.a2.path,
       category: ['Popular', 'Best Seller', 'New'],
     ),
     WatchModel(
       id: 3,
-      price: 4800.0,
-      watchName: 'Omega De Ville Prestige',
+      price: 120.0,
+      watchName: 'Omega De Ville',
       watchImage: Assets.images.a3.path,
       category: ['Best Seller', 'New'],
     ),
     WatchModel(
       id: 4,
-      price: 7300.0,
+      price: 149.0,
       watchName: 'Omega Constellation',
       watchImage: Assets.images.a4.path,
       category: ['Trending', 'Best Seller'],
     ),
     WatchModel(
       id: 5,
-      price: 8500.0,
+      price: 169.0,
       watchName: 'Omega Aqua Terra',
       watchImage: Assets.images.a5.path,
       category: ['Trending'],

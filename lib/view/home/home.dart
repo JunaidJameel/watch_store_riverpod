@@ -20,23 +20,10 @@ class HomeView extends StatelessWidget {
         leading: Icon(Iconsax.menu_board),
         centerTitle: true,
         title: Text(
-          'NOMOS',
-          style: GoogleFonts.abel(
-              fontSize: 28.sp, fontWeight: FontWeight.w800, letterSpacing: 1),
+          'OMEGA',
+          style: GoogleFonts.merriweather(
+              fontSize: 24.sp, fontWeight: FontWeight.w800, letterSpacing: 1),
         ),
-        actions: [
-          Badge(
-            smallSize: 15.sp,
-            backgroundColor: AppColors.kGrey,
-            child: IconButton(
-              icon: Icon(Iconsax.shop),
-              onPressed: () {
-                // Handle settings button press
-              },
-            ),
-          ),
-          20.hSpace,
-        ],
       ),
       body: SafeArea(
         child: Column(
