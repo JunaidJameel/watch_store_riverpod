@@ -40,7 +40,7 @@ This project is licensed under the MIT License. See the [LICENSE].
 <p align="left">
   <a href="https://github.com/JunaidJameel"><img src="https://img.shields.io/badge/GitHub-Follow-blue?logo=github" alt="GitHub Follow"/></a>
   <a href="https://www.instagram.com/junaid_jamel/?igsh=YW44MGk4OHQ5M2Mx"><img src="https://img.shields.io/badge/Instagram-Follow-e4405f?logo=instagram" alt="Instagram"/></a>
-  <a href="https://www.linkedin.com/in/junaid-jameel-6298bb26b/">
+  <a href="https://www.linkedin.com/in/junaid-jamel-6298bb26b/">
     <img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?logo=linkedin" alt="LinkedIn"/>
   </a>
 </p>
