@@ -5,10 +5,10 @@ Watch Store is a Flutter UI prototype for an online watch shop. It demonstrates 
 
 ## ✨ Features
 
-• Browse a list of watches
-• View product details
-• Filter products
-• Add/remove items in cart
+• Browse a list of watches  
+• View product details  
+• Filter products  
+• Add/remove items in cart  
 
 ---
 
