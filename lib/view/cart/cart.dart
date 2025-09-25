@@ -23,7 +23,10 @@ class CartView extends ConsumerWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text("Your Cart"),
+        title: Text(
+          "Your Cart",
+          style: AppTypography.kBold16,
+        ),
       ),
       body: isEmpty
           ? const Center(child: Text("Your cart is empty"))

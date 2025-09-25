@@ -8,6 +8,7 @@ import 'package:watch_store/const/app_colors.dart';
 import 'package:watch_store/const/extensions/extension_sizebox.dart';
 import 'package:watch_store/view/cart/cart.dart';
 import 'package:watch_store/view/home/home.dart';
+import 'package:watch_store/view/setting/setting.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -19,7 +20,13 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int selectedIndex = 0;
 
-  final List<Widget> _pages = const [HomeView(), Text('')];
+  final List<Widget> _pages = const [
+    HomeView(),
+    Text(
+      '',
+    ),
+    SettingView()
+  ];
 
   void changeTab(int index) {
     setState(() => selectedIndex = index);
