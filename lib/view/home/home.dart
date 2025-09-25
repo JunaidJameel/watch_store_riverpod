@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:watch_store/const/app_colors.dart';
 import 'package:watch_store/const/app_utils.dart';
 import 'package:watch_store/const/extensions/extension_sizebox.dart';
+import 'package:watch_store/provider/watch_provider.dart';
 import 'package:watch_store/view/home/widget/filter_widget.dart';
 import 'package:watch_store/view/home/widget/watch_card.dart';
 
@@ -57,15 +59,26 @@ class HomeView extends StatelessWidget {
                       letterSpacing: 1)),
             ),
             40.vSpace,
-            FilterWidget(
-              options: [
-                "Trending",
-                "Popular",
-                "New",
-                "Best Sellig",
-              ],
-              onChanged: (index) {},
-            ),
+            Consumer(builder: (context, ref, child) {
+              return FilterWidget(
+                options: [
+                  "Trending",
+                  "Popular",
+                  "New",
+                  "Best Seller",
+                ],
+                onChanged: (index) {
+                  final selectedCategory = [
+                    "Trending",
+                    "Popular",
+                    "New",
+                    "Best Seller",
+                  ][index];
+
+                  ref.read(watchProvider.notifier).filter(selectedCategory);
+                },
+              );
+            }),
             40.vSpace,
             WatchCardWidget(),
             80.vSpace,

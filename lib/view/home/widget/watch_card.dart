@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:watch_store/const/app_colors.dart';
+import 'package:watch_store/const/app_typography.dart';
 import 'package:watch_store/const/app_utils.dart';
 import 'package:watch_store/const/extensions/extension_sizebox.dart';
+import 'package:watch_store/model/watch_model.dart';
 import 'package:watch_store/provider/watch_provider.dart';
 import 'package:watch_store/view/home/detail.dart';
 
@@ -21,33 +24,26 @@ class WatchCardWidget extends ConsumerWidget {
         itemCount: watches.length,
         separatorBuilder: (_, __) => 20.hSpace,
         itemBuilder: (_, index) {
-          return _WatchItemCard(index: index); // delegate card building
+          final watch = watches[index];
+
+          return _WatchItemCard(watch: watch); // delegate card building
         },
       ),
     );
   }
 }
 
-class _WatchItemCard extends ConsumerWidget {
-  final int index;
-  const _WatchItemCard({required this.index});
+class _WatchItemCard extends StatelessWidget {
+  final WatchModel watch;
+  const _WatchItemCard({required this.watch});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    debugPrint('Building card for index: $index'); // 👈 track rebuilds
-
-    // only rebuild when THIS index changes
-    final watch = ref.watch(
-      watchProvider.select((list) => list[index]),
-    );
-
+  Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (_) => DetailView(
-                    watch: watch,
-                  ))),
+        context,
+        MaterialPageRoute(builder: (_) => DetailView(watch: watch)),
+      ),
       child: Container(
         height: 100,
         width: 220.w,
@@ -61,16 +57,29 @@ class _WatchItemCard extends ConsumerWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: AppColors.kGrey.withValues(alpha: .5),
+                color: AppColors.kGrey.withValues(alpha: .15),
               ),
               margin: const EdgeInsets.only(top: 150),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(watch.watchName),
-                  5.vSpace,
-                  Text('USD \$${watch.price}'),
+                  Padding(
+                    padding: kPagePadding,
+                    child: Text(
+                      watch.watchName,
+                      style: AppTypography.kBold16,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  10.vSpace,
+                  Text(
+                    'USD \$${watch.price}',
+                    style: GoogleFonts.oswald(
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black54,
+                    ),
+                  ),
                   20.vSpace,
                 ],
               ),
@@ -79,7 +88,7 @@ class _WatchItemCard extends ConsumerWidget {
               alignment: Alignment.topCenter,
               child: Image.asset(
                 watch.watchImage,
-                height: 300.h,
+                height: 280.h,
               ),
             )
           ],
