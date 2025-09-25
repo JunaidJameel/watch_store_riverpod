@@ -16,7 +16,7 @@ Watch Store is a Flutter UI prototype for an online watch shop. It demonstrates 
 
 | App Preview |
 |-------------|
-<img width="527" height="961" alt="r1" src="https://github.com/user-attachments/assets/f49f2298-4e73-4917-8618-68cc8b69948c" />
+<img width="220" height="680" alt="r1" src="https://github.com/user-attachments/assets/f49f2298-4e73-4917-8618-68cc8b69948c" />
 
 <img width="220" height="680" alt="Screenshot 2" src="https://github.com/user-attachments/assets/d541ae84-ea27-4f4c-9506-d037cd163ba4" />
 
