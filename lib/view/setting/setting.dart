@@ -49,6 +49,11 @@ class SettingView extends StatelessWidget {
             icon: Iconsax.info_circle,
             onTap: () {},
           ),
+          _SettingTile(
+            title: "Logout",
+            icon: Iconsax.logout,
+            onTap: () {},
+          ),
         ],
       ),
     );
